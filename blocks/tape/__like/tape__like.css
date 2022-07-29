@@ -10,5 +10,5 @@
 
 .tape__like:active {
     opacity: 1;
-    background-image: url(../../../image/like__black.svg);
+    background-image: url("../../../image/like__black.svg");
 }
