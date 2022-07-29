@@ -1,0 +1,7 @@
+.tape__button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}

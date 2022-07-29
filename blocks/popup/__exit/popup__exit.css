@@ -1,0 +1,13 @@
+.popup__exit {
+    display: flex;
+    transition: 0.5s opacity;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin-left: auto;
+}
+
+.popup__exit:hover {
+    opacity: 0.6;
+}

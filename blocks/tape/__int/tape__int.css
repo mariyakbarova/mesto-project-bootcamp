@@ -1,0 +1,10 @@
+.tape__int {
+    display: flex;
+    justify-content: space-around;
+    max-width: 282px;
+    margin: 0;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    padding-top: 25px;
+    padding-bottom: 31px;
+}

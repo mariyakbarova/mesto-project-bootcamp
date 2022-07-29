@@ -1,0 +1,16 @@
+.profile__info {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    padding-bottom: 14px;
+    box-sizing: border-box;
+    padding-left: 28px;
+}
+
+@media screen and (min-width:1025px) {
+    
+.profile__info{
+    padding: 0 0 16px 0 ;
+}
+}

@@ -1,0 +1,6 @@
+@media screen and (min-width:600px) {
+    .popup__content{
+        margin-top: 8px;
+        margin-right: 40px;
+    } 
+}

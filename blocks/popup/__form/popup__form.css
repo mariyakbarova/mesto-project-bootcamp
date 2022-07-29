@@ -1,0 +1,13 @@
+.popup__form {
+    border: none;
+    margin: 75px 0 45px 0;
+    padding: 0;
+    display: grid;
+    gap: 30px;
+}
+
+@media screen and (min-width: 600px) {
+    .popup__form {
+        margin: 54px 0 48px 0;
+    }
+}
