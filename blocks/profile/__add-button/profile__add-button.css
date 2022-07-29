@@ -7,18 +7,21 @@
     margin: 36px auto;
     cursor:pointer;
     transition: 0.5s opacity;
+    background-image: url(../../../image/plus.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
 }
 
 .profile__add-button:hover{
     opacity: 0.6;
 }
 
-
  @media screen and (min-width:1025px) {
     .profile__add-button{
         max-width: 150px;
         margin:0 0 0 auto;
-
+        background-size: 22px 22px;
     }  
 }
 

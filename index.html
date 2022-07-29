@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./page/index.css">
+    <link rel="stylesheet" href="./pages/index.css">
     <title>Project Mesto</title>
 </head>
 
 <body class="body">
 
-    <section class="popup">
+    <section class="popup popup_opened">
         <div class="popup__content">
-            <button class="popup__exit"><img class="popup__exit-img" src="./image/x.svg" alt="Закрыть"></button>
+            <button class="popup__exit" type="button"></button>
             <form class="popup__window">
                 <h2 class="popup__window-name">Редактировать профиль</h2>
                 <fieldset class="popup__form">
@@ -32,17 +32,15 @@
     </header>
     <main class="main">
         <section class="profile">
-            <img class="profile__avatar" src="./image/kusto.png" alt="Автар профиля">
+            <img class="profile__avatar" src="./image/kusto.svg" alt="Автар профиля">
             <div class="profile__pro">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__edit-button"><img class="profile__edit-button_image" src="/image/pen.png"
-                            alt="Изменить"></button>
+                    <button class="profile__edit-button" type="button" alt="нравится"></button>
                 </div>
                 <p class="profile__profession">Исследователь океана</p>
             </div>
-            <button class="profile__add-button"><img class="profile__add-button_image" src="./image/plus.png"
-                    alt="Добавить"></button>
+            <button class="profile__add-button" type="button"></button>
             
         </section>
 
@@ -51,9 +49,7 @@
                 <img class="tape__photo" src="./image/krachevsk.jpg" alt="Карачевск">
                 <div class="tape__int">
                     <h2 class="tape__photo-name">Карачевск</h2>
-                    <button class="tape__button">
-                        <img class="tape__like" src="./image/Vector.svg" alt="Нравится">
-                    </button>
+                    <div class="tape__container"><button class="tape__button" type="button" alt="нравится"></button></div>
                 </div>
             </div>
 
@@ -61,9 +57,7 @@
                 <img class="tape__photo" src="./image/elbrus.png" alt="Гора Эльбрус">
                 <div class="tape__int">
                     <h2 class="tape__photo-name">Гора Эльбрус</h2>
-                    <button class="tape__button">
-                        <img class="tape__like" src="./image/Vector.svg" alt="Нравится">
-                    </button>
+                    <div class="tape__container"><button class="tape__button" type="button" alt="нравится"></button></div>
                 </div>
             </div>
 
@@ -71,9 +65,7 @@
                 <img class="tape__photo" src="./image/donbay.png" alt="Домбай">
                 <div class="tape__int">
                     <h2 class="tape__photo-name">Домбай</h2>
-                    <button class="tape__button">
-                        <img class="tape__like" src="./image/Vector.svg" alt="Нравится">
-                    </button>
+                    <div class="tape__container"><button class="tape__button" type="button" alt="нравится"></button></div>
                 </div>
             </div>
 
@@ -81,9 +73,7 @@
                 <img class="tape__photo" src="./image/elbrus.png" alt="Гора Эльбрус">
                 <div class="tape__int">
                     <h2 class="tape__photo-name">Гора Эльбрус</h2>
-                    <button class="tape__button">
-                        <img class="tape__like" src="./image/Vector.svg" alt="Нравится">
-                    </button>
+                    <div class="tape__container"><button class="tape__button" type="button" alt="нравится"></button></div>
                 </div>
             </div>
 
@@ -91,9 +81,7 @@
                 <img class="tape__photo" src="./image/donbay.png" alt="Домбай">
                 <div class="tape__int">
                     <h2 class="tape__photo-name">Домбай</h2>
-                    <button class="tape__button">
-                        <img class="tape__like" src="./image/Vector.svg" alt="Нравится">
-                    </button>
+                    <div class="tape__container"><button class="tape__button" type="button" alt="нравится"></button></div>
                 </div>
             </div>
 
@@ -102,9 +90,7 @@
                 <img class="tape__photo" src="./image/krachevsk.jpg" alt="Карачевск">
                 <div class="tape__int">
                     <h2 class="tape__photo-name">Карачаево-Черкесия</h2>
-                    <button class="tape__button">
-                        <img class="tape__like" src="./image/Vector.svg" alt="Нравится">
-                    </button>
+                    <div class="tape__container"><button class="tape__button" type="button"></button></div>
                 </div>
             </div>
         </section>

@@ -1,7 +1,20 @@
 .tape__button {
-    display: flex;
-    align-items: center;
     border: none;
-    background-color: white;
     cursor: pointer;
+    background-image: url(../../../image/Vector.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.4s opacity;
+    background-color: transparent;
+    width: 22px;
+    height: 19px;
+}
+
+.tape__button:hover {
+    opacity: 0.5;
+}
+
+.tape__button:active {
+    opacity: 1;
+    background-image: url(../../../image/like__black.svg);
 }
