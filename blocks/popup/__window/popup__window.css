@@ -1,12 +1,9 @@
 .popup__window {
-    position: relative;
-    height: 322px;
     width: 282px;
     background-color: white;
     border-radius: 10px;
     box-sizing: border-box;
     padding: 25px 22px;
-    overflow: hidden;
 }
 
 @media screen and (min-width: 600px) {
