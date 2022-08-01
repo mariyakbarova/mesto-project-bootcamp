@@ -6,5 +6,11 @@
     color: rgba(84, 84, 84, 1);
     margin-top: 0;
     margin-bottom: 0;
-    
+}
+
+@media screen and (min-width:1025px) {
+    .footer__info{
+        font-size: 18px;
+        line-height: 22px;
+    }
 }

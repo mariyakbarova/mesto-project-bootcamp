@@ -1,8 +1,6 @@
 .tape__int {
     display: flex;
     justify-content: space-between;
-    padding-left: 21px;
-    padding-right: 15px;
     padding: 25px 15px 25px 21px;
     max-width: 282px;
     margin: 0;
