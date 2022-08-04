@@ -15,7 +15,7 @@
     opacity: 0.5;
 }
 
-.tape__button:active {
+.tape__button_active {
     opacity: 1;
     background-image: url(../../../image/like__black.svg);
 }

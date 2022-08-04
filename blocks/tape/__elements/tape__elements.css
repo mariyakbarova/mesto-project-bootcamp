@@ -1,3 +1,4 @@
-.tape__element {
+.tape__elements {
     padding: 0;
+    position: relative;
 }

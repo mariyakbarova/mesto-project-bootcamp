@@ -33,9 +33,12 @@
 @import url(../blocks/tape/tape.css);
 @import url(../blocks/tape/__button/tape__button.css);
 @import url(../blocks/tape/__elements/tape__elements.css);
+@import url(../blocks/tape/__delete/tape__delete.css);
 @import url(../blocks/tape/__int/tape__int.css);
 @import url(../blocks/tape/__photo-name/tape__photo-name.css);
 @import url(../blocks/tape/__photo/tape__photo.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__info/footer__info.css);
+
+
