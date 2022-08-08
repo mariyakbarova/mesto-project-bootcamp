@@ -11,17 +11,32 @@
 
 <body class="body">
 
-    <div class="popup">
+    <div class="popup" id="popup-edit">
         <div class="popup__content">
             <button class="popup__exit" type="button"></button>
-            <form class="popup__window" id="профиль">
+            <form class="popup__window" id="profile-edit">
                 <h2 class="popup__window-name">Редактировать профиль</h2>
                 <fieldset class="popup__form">
                     <input class="popup__form-name" id="name" type="text" placeholder="Жак-Ив Кусто">
                     <input class="popup__form-profession" id="profession" type="text"
                         placeholder="Исследователь океана">
                 </fieldset>
-                <button class="popup__save" type="submit">Сохранить</button>
+                <button class="popup__save" type="submit" id="popup-save">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup" id="popup-add">
+        <div class="popup__content">
+            <button class="popup__exit" type="button"></button>
+            <form class="popup__window" id="profile-add">
+                <h2 class="popup__window-name">Новое место</h2>
+                <fieldset class="popup__form">
+                    <input class="popup__form-name" id="title" type="text" placeholder="Название">
+                    <input class="popup__form-profession" id="picture" type="text"
+                        placeholder="Ссылка на картинку">
+                </fieldset>
+                <button class="popup__save" type="submit" id="popup-create">Создать</button>
             </form>
         </div>
     </div>
@@ -39,71 +54,35 @@
                 </div>
                 <p class="profile__profession">Исследователь океана</p>
             </div>
-            <button class="profile__add-button" type="button"></button>
+            <button class="profile__add-button" type="submit"></button>
 
         </section>
 
-        <section class="tape">
-            <div class="tape__elements">
-                <button class="tape__delete" type="button"></button>
-                <img class="tape__photo" src="./image/Байкал.png" alt="Байкал">
-                <div class="tape__int">
-                    <h2 class="tape__photo-name">Зимний Байкал</h2>
-                    <button class="tape__button tape__button_active" type="button"></button>
-                </div>
-            </div>
-
-            <div class="tape__elements">
-                <button class="tape__delete" type="button"></button>
-                <img class="tape__photo" src="./image/Эльбрус.png" alt="Гора Эльбрус">
-                <div class="tape__int">
-                    <h2 class="tape__photo-name">Гора Эльбрус</h2>
-                    <button class="tape__button" type="button"></button>
-                </div>
-            </div>
-
-            <div class="tape__elements">
-                <button class="tape__delete" type="button"></button>
-                <img class="tape__photo" src="./image/Сочи.png" alt="Сочи">
-                <div class="tape__int">
-                    <h2 class="tape__photo-name">Катаюсь в Сочи</h2>
-                    <button class="tape__button" type="button"></button>
-                </div>
-            </div>
-
-            <div class="tape__elements">
-                <button class="tape__delete" type="button"></button>
-                <img class="tape__photo" src="./image/Карелия.png" alt="Карелия">
-                <div class="tape__int">
-                    <h2 class="tape__photo-name">Карелия</h2>
-                    <button class="tape__button tape__button_active" type="button"></button>
-                </div>
-            </div>
-
-            <div class="tape__elements">
-                <button class="tape__delete" type="button"></button>
-                <img class="tape__photo" src="./image/Волга.png" alt="Волга">
-                <div class="tape__int">
-                    <h2 class="tape__photo-name">Волга</h2>
-                    <button class="tape__button" type="button"></button>
-                </div>
-            </div>
-
-
-            <div class="tape__elements">
-                <button class="tape__delete" type="button"></button>
-                <img class="tape__photo" src="./image/Куршская Коса.png" alt="Куршская коса">
-                <div class="tape__int">
-                    <h2 class="tape__photo-name">Курсшская коса</h2>
-                    <button class="tape__button" type="button"></button>
-                </div>
-            </div>
-        </section>
+        <section class="tape"></section>
     </main>
 
     <footer class="footer">
         <p class="footer__info">© 2020 Mesto Russia</p>
     </footer>
+
+    <template id="tape">
+        <div class="tape__elements">
+            <button class="tape__delete" type="button"></button>
+            <img class="tape__photo" src="./image/Байкал.png" alt="Байкал">
+            <div class="tape__int">
+                <h2 class="tape__photo-name">Зимний Байкал</h2>
+                <button class="tape__button" type="button"></button>
+            </div>
+        </div>
+    </template>
+
+    <div class="popup popup_black" id="popup-image">
+        <div class="popup__content">
+            <button class="popup__exit" type="button"></button>
+                <img class="popup__img" src="./image/test.png" alt="Название фото">
+            <p class="popup__img-name" id="img-name">Название фото</p>
+        </div>
+    </div>
 
     <script src="./skripts/index.js"></script>
 </body>
