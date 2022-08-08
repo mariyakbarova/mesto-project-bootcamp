@@ -12,7 +12,7 @@ function createTape(name, src) {
 
     tapeImg.src = src;
     tapeImg.alt = name;
-    tapeTitle.innerHTML = name;
+    tapeTitle.textContent = name;
 
     element.querySelector('.tape__photo').addEventListener('click', function(evt) {
         popupImg.querySelector('img').src = evt.target.src;
@@ -45,15 +45,6 @@ function initPopup(element) {
         closedPopup(element)
         popupContent.reset()
     })
-
-    // popupContent.addEventListener('click', (e) => {
-    //     e.stopPropagation()
-    // })
-
-    // element.addEventListener('click', () => {
-    //     closedPopup(element)
-    //     popupContent.reset()
-    // })
 }
 
 initPopup(popupAbout)
@@ -104,10 +95,6 @@ popupAdd.addEventListener('submit', e => {
     const newCard = createTape(name, src)
     container.insertAdjacentElement('afterbegin', newCard)
 
-    
-
-
-
     closedPopup(popupAdd)
 })
 
@@ -157,26 +144,6 @@ const openImg = document.querySelectorAll('.tape__photo');
 initialCards.forEach((card) => {
     const tape = createTape(card.name, card.link)
     container.insertAdjacentElement('beforeend', tape)
-
-
 })
 
 
-
-// openImg.forEach(function (image){
-//     image.addEventListener('click', function(evt) {
-//         popupImg.querySelector('img').src = evt.target.src;
-//         popupImg.querySelector('.popup__img-name').textContent = evt.target.alt;
-//         openPopup(popupImg)
-//     });
-// });
-
-
-
-// openImg.forEach(function (image){
-//     image.addEventListener('click', function(evt) {
-//         popupImg.querySelector('img').src = evt.target.src;
-//         popupImg.querySelector('.popup__img-name').textContent = evt.target.alt;
-//         openPopup(popupImg)
-//     });
-// });
