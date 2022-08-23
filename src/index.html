@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
+    <title>Проект "Место"</title>
+</head>
+
+<body class="body">
+
+    <header class="header">
+        <img class="header__logo " src="<%=require('./image/logo.svg')%>" alt="логотип">
+    </header>
+    <main class="main">
+        <section class="profile">
+            <img class="profile__avatar" src="<%=require('./image/кусто.png')%>" alt="Автар профиля">
+            <div class="profile__pro">
+                <div class="profile__info">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button class="profile__edit-button" type="button"></button>
+                </div>
+                <p class="profile__profession">Исследователь океана</p>
+            </div>
+            <button class="profile__add-button" type="submit"></button>
+
+        </section>
+
+        <section class="tapes"></section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__info">© 2020 Mesto Russia</p>
+    </footer>
+
+    <template id="tapes">
+        <div class="tapes__elements">
+            <button class="tapes__delete" type="button"></button>
+            <img class="tapes__photo" src="" alt="">
+            <div class="tapes__int">
+                <h2 class="tapes__photo-name"></h2>
+                <button class="tapes__button" type="button"></button>
+            </div>
+        </div>
+    </template>
+
+    <div class="popup" id="popup-edit">
+        <div class="popup__content">
+            <button class="popup__exit" type="button"></button>
+            <form class="popup__window" id="profile-edit" novalidate>
+                <h2 class="popup__window-name">Редактировать профиль</h2>
+                <fieldset class="popup__form">
+                    <label class="popup__label">
+                        <input required class="popup__form-item popup__form-name" id="name" type="text" minlength="2" maxlength="40">
+                        <span class="popup__input-error name-error" id="name-error"></span>
+                    </label>
+                    <label class="popup__label">
+                    <input required class="popup__form-item popup__form-profession" id="profession" type="text" minlength="2" maxlength="200">
+                    <span class="popup__input-error profession-error" id="profession-error"></span>
+                </label>
+                </fieldset>
+                <button class="popup__save" type="submit" id="popup-save">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup" id="popup-add">
+        <div class="popup__content">
+            <button class="popup__exit" type="button"></button>
+            <form class="popup__window" id="profile-add">
+                <h2 class="popup__window-name">Новое место</h2>
+                <fieldset class="popup__form">
+                    <label class="popup__label">
+                    <input required class="popup__form-item popup__form-name" id="title" type="text" placeholder="Название" minlength="2" maxlength="30">
+                    <span class="popup__input-error title-error" id="title-error"></span>
+                    </label>
+                    <label class="popup__label">
+                    <input required class="popup__form-item popup__form-profession" type="url" id="picture" type="text" placeholder="Ссылка на картинку">
+                    <span class="popup__input-error picture-error" id="picture-error"></span>
+                    </label>
+                </fieldset>
+                <button class="popup__save" type="submit" id="popup-create">Создать</button>
+            </form> 
+        </div>
+    </div>
+
+    <div class="popup popup_black" id="popup-image">
+        <div class="popup__content">
+            <button class="popup__exit" type="button"></button>
+                <img class="popup__img" src="./image/test.png" alt="Название фото">
+            <p class="popup__img-name" id="img-name">Название фото</p>
+        </div>
+    </div>
+<!-- <script src="./components/index.js"></script> -->
+</body>
+
+</html>

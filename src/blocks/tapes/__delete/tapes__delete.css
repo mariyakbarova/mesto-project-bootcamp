@@ -1,0 +1,19 @@
+.tapes__delete{
+    position: absolute;
+    z-index: 1;
+    background-image: url(../../../image/удалить.svg);
+    background-size: 18px 19px;
+    background-color: transparent;
+    top: 20px;
+    right: 20px;    
+    border: none;
+    width: 18px;
+    height: 19px;
+    padding: 0;
+    transition: 0.5s opacity;
+    cursor: pointer;
+}
+
+.tapes__delete:hover{
+    opacity: 0.6;
+}
