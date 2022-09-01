@@ -1,5 +1,6 @@
 //функции для работы с карточками проекта Mesto
 import { openPopup } from "./utils";
+// import { getInitialCards } from "./api";
 
 export const popupImg = document.querySelector('#popup-image');
 export const tapeTemplate = document.querySelector('#tapes').content;
@@ -14,6 +15,7 @@ export function createTape(name, src) {
     tapeImg.src = src;
     tapeImg.alt = name;
     tapeTitle.textContent = name;
+
 
     tapeImg.addEventListener('click', function(evt) {
         popupImg.querySelector('.popup__img').src = evt.target.src;

@@ -4,30 +4,53 @@ import { mestoSelectors, initialCards } from './data';
 import { resetErrors, enableValidation } from './validate';
 import { popupImg, createTape } from './card';
 import {
-    popupAbout, popupAdd,
-    submitFormProfile, submitFormPlace,
-    initPopup
+    popupAbout, popupAdd, popupAvatar,
+    submitFormProfile, submitFormPlace, submitFormAvatar,
+    initPopup,
+    profileAvatar
 } from './modal';
 import { openPopup } from './utils';
+import { getBasicData } from './api';
 
 export const container = document.querySelector('.tapes');
 export const profileName = document.querySelector('.profile__name');
 export const profileJob = document.querySelector('.profile__profession');
+export const nameInput = popupAbout.querySelector(".popup__form-name");
+export const professionInput = popupAbout.querySelector(".popup__form-profession");
+
 const openEditButton = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
+const avatarEditButton = document.querySelector('.profile__avatar');
 const formEdit = document.querySelector('#profile-edit');
 const formAdd = document.querySelector('#profile-add');
+const formAvatar = document.querySelector('#avatar-form');
 
 
-initPopup(popupAbout)
-initPopup(popupAdd)
-initPopup(popupImg)
+initPopup(popupAbout);
+initPopup(popupAdd);
+initPopup(popupImg);
+initPopup(popupAvatar);
+
+
+//получение хранящихся на сервере данных
+getBasicData() 
+   .then( (data) => {
+    profileName.textContent = data.name; //в контент переменной записывается значение с сервера
+    profileJob.textContent = data.about;
+    profileAvatar.style.backgroundImage = `url(${data.avatar})`;
+    console.log(data);
+   })
+   .catch(console.log)
+   .finally(() => {
+      console.log('Вызов состоялся!!!');
+      });
+
+
 
 
 openEditButton.addEventListener("click", function () {
-    const nameInput = popupAbout.querySelector(".popup__form-name");
+    
     nameInput.value = profileName.textContent;
-    const professionInput = popupAbout.querySelector(".popup__form-profession");
     professionInput.value = profileJob.textContent;
 
     resetErrors(formEdit, mestoSelectors);
@@ -46,8 +69,18 @@ buttonAdd.addEventListener('click', function () {
     openPopup(popupAdd);
 });
 
+avatarEditButton.addEventListener('click', function () {
+    const avatarInput = document.querySelector('#avatar');
+
+    avatarInput.value = '';
+
+    resetErrors(formAvatar, mestoSelectors);
+    openPopup(popupAvatar);
+})
+
 formEdit.addEventListener('submit', submitFormProfile);
 formAdd.addEventListener('submit', submitFormPlace);
+formAvatar.addEventListener('submit', submitFormAvatar);
 
 container.addEventListener('click', function (e) {
     if (e.target.className === 'tapes__delete') {
@@ -66,3 +99,18 @@ initialCards.forEach((card) => {
 })
 
 enableValidation(mestoSelectors);
+
+
+
+// import { getInitialCards } from './api.js'
+
+// getInitialCards()
+//   .then((result) => {
+//     // обрабатываем результат
+//   })
+//   .catch((err) => {
+//     console.log(err); // выводим ошибку в консоль
+//   }); 
+
+
+

@@ -16,7 +16,7 @@
     </header>
     <main class="main">
         <section class="profile">
-            <img class="profile__avatar" src="<%=require('./image/кусто.png')%>" alt="Автар профиля">
+            <div class="profile__avatar" id="profile-avatar" alt="Автар профиля"></div>
             <div class="profile__pro">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -41,7 +41,10 @@
             <img class="tapes__photo" src="" alt="">
             <div class="tapes__int">
                 <h2 class="tapes__photo-name"></h2>
-                <button class="tapes__button" type="button"></button>
+                <div class="tapes__like-container">
+                <button class="tapes__button" id="like" type="button"></button>
+                <span class="tapes__like-counter" id="like-counter">0</span>
+                </div>
             </div>
         </div>
     </template>
@@ -89,11 +92,39 @@
     <div class="popup popup_black" id="popup-image">
         <div class="popup__content">
             <button class="popup__exit" type="button"></button>
-                <img class="popup__img" src="./image/test.png" alt="Название фото">
+                <img class="popup__img" src="" alt="Название фото">
             <p class="popup__img-name" id="img-name">Название фото</p>
         </div>
     </div>
-<!-- <script src="./components/index.js"></script> -->
+
+
+    <div class="popup" id="popup-avatar">
+        <div class="popup__content">
+            <button class="popup__exit" type="button"></button>
+            <form class="popup__window" id="avatar-form">
+                <h2 class="popup__window-name">Обновить аватар</h2>
+                <fieldset class="popup__form">
+                    </label>
+                    <label class="popup__label">
+                    <input required class="popup__form-item popup__form-avatar" type="url" id="avatar" type="text" placeholder="Ссылка на картинку">
+                    <span class="popup__input-error avatar-error" id="avatar-error"></span>
+                    </label>
+                </fieldset>
+                <button class="popup__save" type="submit" id="popup-save-avatar">Сохранить</button>
+            </form> 
+        </div>
+    </div>
+
+    <div class="popup" id="popup-delete-card">
+        <div class="popup__content">
+            <button class="popup__exit" type="button"></button>
+            <form class="popup__window" id="delete-form">
+                <h2 class="popup__window-name">Вы уверены?</h2>
+                <button class="popup__save" type="submit" id="popup-delete-button">Да</button>
+            </form> 
+        </div>
+    </div>
+
 </body>
 
 </html>
