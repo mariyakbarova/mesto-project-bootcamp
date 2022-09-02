@@ -24,8 +24,21 @@ export function submitFormAvatar(e) {
 
 export function submitFormProfile(e) {
     e.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileJob.textContent = professionInput.value;
+    // profileName.textContent = nameInput.value;
+    // profileJob.textContent = professionInput.value;
+    console.dir(nameInput);
+    console.dir(professionInput);
+
+    changeProfileData(nameInput.value, professionInput.value)
+    .then( (data) => {
+        console.log(data);
+    })
+    .catch(console.log)
+    .finally(() => {
+        console.log('Вызов состоялся.');
+        });
+
+
     closePopup(popupAbout);
 };
 

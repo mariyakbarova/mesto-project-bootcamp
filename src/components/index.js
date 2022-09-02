@@ -10,7 +10,7 @@ import {
     profileAvatar
 } from './modal';
 import { openPopup } from './utils';
-import { getBasicData } from './api';
+import { getBasicData, changeProfileData } from './api';
 
 export const container = document.querySelector('.tapes');
 export const profileName = document.querySelector('.profile__name');
@@ -44,9 +44,6 @@ getBasicData()
    .finally(() => {
       console.log('Вызов состоялся!!!');
       });
-
-
-
 
 openEditButton.addEventListener("click", function () {
     
