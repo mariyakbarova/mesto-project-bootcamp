@@ -2,7 +2,7 @@
 import {closePopup} from './utils';
 import { createTape } from './card';
 import { container, nameInput, profileName, profileJob, professionInput } from './index';
-import { changeProfileData } from './api';
+import { changeProfileData, changeProfileAvatar } from './api';
 
 export const popupAbout = document.querySelector('#popup-edit');
 export const popupAdd = document.querySelector('#popup-add');
@@ -18,7 +18,16 @@ export function submitFormAvatar(e) {
     e.preventDefault();
     console.dir(profileAvatar);
     console.dir(avatarInput);
-    profileAvatar.style.backgroundImage = `url(${avatarInput.value})`;
+    // profileAvatar.style.backgroundImage = `url(${avatarInput.value})`;
+    changeProfileAvatar(avatarInput.value)
+    .then( (data) => {
+        profileAvatar.style.backgroundImage = `url(${avatarInput.value})`; 
+    })
+    .catch(console.log)
+    .finally(() => {
+        console.log('Аватар загрузился');
+        });
+
     closePopup(popupAvatar);
 }
 
@@ -31,7 +40,9 @@ export function submitFormProfile(e) {
 
     changeProfileData(nameInput.value, professionInput.value)
     .then( (data) => {
-        console.log(data);
+    profileName.textContent = data.name;
+    profileJob.textContent = data.about;
+        
     })
     .catch(console.log)
     .finally(() => {

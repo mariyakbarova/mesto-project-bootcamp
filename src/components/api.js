@@ -19,7 +19,7 @@ export function getBasicData() {
   return fetch('https://nomoreparties.co/v1/wbc-cohort-1/users/me', {
     headers: {
       authorization: '0ece32e5-0b11-41b4-bea5-614b42e17cd3',
-      'Content-Type': 'aplication/json'
+      'Content-Type': 'application/json'
     }
   })
     .then(checkResponse);
@@ -30,15 +30,28 @@ getBasicData()
 
 //функция замены имени и профессии
 export function changeProfileData(name, about) {
-  console.log(name);
-  console.log(about);
+  // console.log(name);
+  // console.log(about);
   return fetch('https://nomoreparties.co/v1/wbc-cohort-1/users/me', { 
     method: 'PATCH', 
     headers: {
       authorization: '0ece32e5-0b11-41b4-bea5-614b42e17cd3', 
-      'Content-Type': 'aplication/json'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({ name, about })// тело вызовова, JSON.stringigy - преобразует значение JS в строку  // имя с сервера записывается в текстовое значние из переменной
+    
+  })
+    .then(checkResponse) // вызов первичной обработки данных
+}
+
+export function changeProfileAvatar (avatar) {
+  return fetch('https://nomoreparties.co/v1/wbc-cohort-1/users/me', { 
+    method: 'PATCH', 
+    headers: {
+      authorization: '0ece32e5-0b11-41b4-bea5-614b42e17cd3', 
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ avatar })// тело вызовова, JSON.stringigy - преобразует значение JS в строку  // имя с сервера записывается в текстовое значние из переменной
     
   })
     .then(checkResponse) // вызов первичной обработки данных
