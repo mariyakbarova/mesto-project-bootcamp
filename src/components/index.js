@@ -54,21 +54,10 @@ getInitialCards()
         // titleInput.alt = data.name;
         // pictureInput.src = data.link;
         console.log(data)
-
-        container.addEventListener('click', function (e) {
-            if (e.target.className === 'tapes__delete') {
-                const listItem = e.target.closest('.tapes__elements')
-                listItem.remove()
-            }
-        
-            if (e.target.classList.contains('tapes__button')) {
-                e.target.classList.toggle('tapes__button_active')
-            }
-        })
         
         data.forEach((card) => {
             const tape = createTape(card)
-            container.insertAdjacentElement('beforeend', tape)
+            container.prepend('beforeend', tape)
         })
     })
     .catch(console.log)
@@ -109,16 +98,16 @@ formEdit.addEventListener('submit', submitFormProfile);
 formAdd.addEventListener('submit', submitFormPlace);
 formAvatar.addEventListener('submit', submitFormAvatar);
 
-// container.addEventListener('click', function (e) {
-//     if (e.target.className === 'tapes__delete') {
-//         const listItem = e.target.closest('.tapes__elements')
-//         listItem.remove()
-//     }
+container.addEventListener('click', function (e) {
+    if (e.target.className === 'tapes__delete') {
+        const listItem = e.target.closest('.tapes__elements')
+        listItem.remove()
+    }
 
-//     if (e.target.classList.contains('tapes__button')) {
-//         e.target.classList.toggle('tapes__button_active')
-//     }
-// })
+    if (e.target.classList.contains('tapes__button')) {
+        e.target.classList.toggle('tapes__button_active')
+    }
+})
 
 // initialCards.forEach((card) => {
 //     const tape = createTape(card.name, card.link)
