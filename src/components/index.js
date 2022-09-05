@@ -10,7 +10,7 @@ import {
     profileAvatar
 } from './modal';
 import { openPopup } from './utils';
-import { getBasicData, getInitialCards} from './api';
+import { getBasicData, getInitialCards } from './api';
 
 export const container = document.querySelector('.tapes');
 export const profileName = document.querySelector('.profile__name');
@@ -35,34 +35,34 @@ initPopup(popupAvatar);
 
 
 //получение хранящихся на сервере данных (имя, профессия, аватар)
-getBasicData() 
-   .then( (data) => {
-    profileName.textContent = data.name; //в контент переменной записывается значение с сервера
-    profileJob.textContent = data.about;
-    profileAvatar.style.backgroundImage = `url(${data.avatar})`;
-    console.log(data);
-   })
-   .catch(console.log)
-   .finally(() => {
-      console.log('Вызов состоялся!!!');
-      });
+getBasicData()
+    .then((data) => {
+        profileName.textContent = data.name; //в контент переменной записывается значение с сервера
+        profileJob.textContent = data.about;
+        profileAvatar.style.backgroundImage = `url(${data.avatar})`;
+        // console.log(data);
+    })
+    .catch(console.log)
+    // .finally(() => {
+    //     console.log('Вызов состоялся!!!');
+    // });
 
 //получение данных, храниящихся на сервере (карты)
 getInitialCards()
-.then( (data) => {
-    titleInput.textContent = data.name;
-    titleInput.alt = data.name;
-    pictureInput.src = data.link;
-    console.log(data)
-})
-.catch(console.log)
-.finally(() => {
-    console.log('Карты получены!!!');
-    });
+    .then((data) => {
+        titleInput.textContent = data.name;
+        titleInput.alt = data.name;
+        pictureInput.src = data.link;
+        // console.log(data)
+    })
+    .catch(console.log)
+    // .finally(() => {
+    //     console.log('Карты получены!!!');
+    // });
 
 
 openEditButton.addEventListener("click", function () {
-    
+
     nameInput.value = profileName.textContent;
     professionInput.value = profileJob.textContent;
 
@@ -108,6 +108,7 @@ initialCards.forEach((card) => {
     const tape = createTape(card.name, card.link)
     container.insertAdjacentElement('beforeend', tape)
 })
+
 
 enableValidation(mestoSelectors);
 

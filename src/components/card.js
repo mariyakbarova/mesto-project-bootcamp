@@ -17,7 +17,6 @@ export function createTape(card) {
     tapeTitle.textContent = card.name;
     element.id = card._id;
 
-
     tapeImg.addEventListener('click', function(evt) {
         popupImg.querySelector('.popup__img').src = evt.target.src;
         popupImg.querySelector('.popup__img-name').textContent = evt.target.alt;
@@ -26,4 +25,6 @@ export function createTape(card) {
 
     return element;
 };
+
+
 
