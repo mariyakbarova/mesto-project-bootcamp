@@ -13,20 +13,10 @@ export const tapeTitle = tapeElement.querySelector('.tapes__photo-name');
 export function createTape(name, src) {
     const element = tapeElement.cloneNode(true)
 
-    // tapeImg.src = src;
-    // tapeImg.alt = name;
-    // tapeTitle.textContent = name;
+    tapeImg.src = src;
+    tapeImg.alt = name;
+    tapeTitle.textContent = name;
 
-changeCardTape( tapeImg.src, tapeElement.value)
-.then( (data) => {
-    tapeImg.src = data.link;
-    tapeImg.alt = data.name;
-    tapeTitle.textContent = data.neme
-})
-.catch(console.log)
-.finally(() => {
-    console.log('Карты отправлены');
-    });
 
     tapeImg.addEventListener('click', function(evt) {
         popupImg.querySelector('.popup__img').src = evt.target.src;

@@ -1,8 +1,8 @@
 //работa модальных окон
 import {closePopup} from './utils';
 import { createTape } from './card';
-import { container, nameInput, profileName, profileJob, professionInput } from './index';
-import { changeProfileData, changeProfileAvatar } from './api';
+import { container, nameInput, profileName, profileJob, professionInput, titleInput, pictureInput } from './index';
+import { changeProfileData, changeProfileAvatar, changeCardTape } from './api';
 
 export const popupAbout = document.querySelector('#popup-edit');
 export const popupAdd = document.querySelector('#popup-add');
@@ -35,12 +35,11 @@ export function submitFormProfile(e) {
     e.preventDefault();
     console.dir(nameInput);
     console.dir(professionInput);
-    
+
     changeProfileData(nameInput.value, professionInput.value)
     .then( (data) => {
     profileName.textContent = data.name;
-    profileJob.textContent = data.about;
-        
+    profileJob.textContent = data.about;    
     })
     .catch(console.log)
     .finally(() => {
@@ -56,6 +55,19 @@ export function submitFormPlace(e) {
     const name = popupAdd.querySelector('#title').value;
     const src = popupAdd.querySelector('#picture').value;
     container.prepend(createTape(name, src))
+
+    changeCardTape( titleInput, pictureInput)
+.then( (data) => {
+    titleInput.textContent = data.name;
+    titleInput.alt = data.name;
+    pictureInput.src = data.link;
+})
+.catch(console.log)
+.finally(() => {
+    console.log('Карты отправлены');
+    });
+
+
     closePopup(popupAdd)
 };
 

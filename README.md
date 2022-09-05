@@ -16,5 +16,6 @@
 **GitHub**
 
 * [Ссылка на проект](https://mariyakbarova.github.io/mesto-project-bootcamp/index.html)
+* [Сыылка на репозиторий] (https://mariyakbarova.github.io/mesto-project-bootcamp.git )
 
 

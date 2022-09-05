@@ -24,6 +24,8 @@ const avatarEditButton = document.querySelector('.profile__avatar');
 const formEdit = document.querySelector('#profile-edit');
 const formAdd = document.querySelector('#profile-add');
 const formAvatar = document.querySelector('#avatar-form');
+export const titleInput = document.querySelector('#title');
+export const pictureInput = document.querySelector('#picture');
 
 
 initPopup(popupAbout);
@@ -48,9 +50,9 @@ getBasicData()
 //получение данных, храниящихся на сервере (карты)
 getInitialCards()
 .then( (data) => {
-    tapeImg.src = data.link;
-    tapeImg.alt = data.name;
-    tapeTitle.textContent = data.name;
+    titleInput.textContent = data.name;
+    titleInput.alt = data.name;
+    pictureInput.src = data.link;
     console.log(data)
 })
 .catch(console.log)
@@ -69,8 +71,6 @@ openEditButton.addEventListener("click", function () {
 });
 
 buttonAdd.addEventListener('click', function () {
-    const titleInput = document.querySelector('#title');
-    const pictureInput = document.querySelector('#picture');
 
     titleInput.value = '';
     pictureInput.value = '';

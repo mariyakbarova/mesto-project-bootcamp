@@ -25,9 +25,6 @@ export function getBasicData() {
     .then(checkResponse);
 }
 
-getBasicData()
-
-
 //отправка на сервер данных имени и профессии, аватара
 export function changeProfileData(name, about) {
   // console.log(name);
@@ -58,7 +55,7 @@ export function changeProfileAvatar (avatar) {
     .then(checkResponse) // вызов первичной обработки данных
 }
 
-//получение карточек с сервера
+//получение массива карточек с сервера
 
 export function getInitialCards () {
   return fetch('https://nomoreparties.co/v1/wbc-cohort-1/cards', {
@@ -74,6 +71,7 @@ export function getInitialCards () {
 
 export function changeCardTape ( link, name ) {
   return fetch('https://nomoreparties.co/v1/wbc-cohort-1/cards', {
+    method: 'POST',
     headers: {
       authorization: '0ece32e5-0b11-41b4-bea5-614b42e17cd3', 
       'Content-Type': 'application/json'
