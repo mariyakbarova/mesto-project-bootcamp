@@ -15,7 +15,7 @@ export function createTape(card) {
     tapeImg.src = card.link;
     tapeImg.alt = card.name;
     tapeTitle.textContent = card.name;
-    tapeTemplate.id = card._id;
+    element.id = card._id;
 
 
     tapeImg.addEventListener('click', function(evt) {
