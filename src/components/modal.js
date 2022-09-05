@@ -33,11 +33,9 @@ export function submitFormAvatar(e) {
 
 export function submitFormProfile(e) {
     e.preventDefault();
-    // profileName.textContent = nameInput.value;
-    // profileJob.textContent = professionInput.value;
     console.dir(nameInput);
     console.dir(professionInput);
-
+    
     changeProfileData(nameInput.value, professionInput.value)
     .then( (data) => {
     profileName.textContent = data.name;

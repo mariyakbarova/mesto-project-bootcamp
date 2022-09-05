@@ -2,7 +2,7 @@ import '../pages/index.css';
 
 import { mestoSelectors, initialCards } from './data';
 import { resetErrors, enableValidation } from './validate';
-import { popupImg, createTape } from './card';
+import { popupImg, createTape, tapeElement, tapeImg, tapeTitle } from './card';
 import {
     popupAbout, popupAdd, popupAvatar,
     submitFormProfile, submitFormPlace, submitFormAvatar,
@@ -10,7 +10,7 @@ import {
     profileAvatar
 } from './modal';
 import { openPopup } from './utils';
-import { getBasicData, changeProfileData } from './api';
+import { getBasicData, getInitialCards} from './api';
 
 export const container = document.querySelector('.tapes');
 export const profileName = document.querySelector('.profile__name');
@@ -32,7 +32,7 @@ initPopup(popupImg);
 initPopup(popupAvatar);
 
 
-//получение хранящихся на сервере данных
+//получение хранящихся на сервере данных (имя, профессия, аватар)
 getBasicData() 
    .then( (data) => {
     profileName.textContent = data.name; //в контент переменной записывается значение с сервера
@@ -44,6 +44,20 @@ getBasicData()
    .finally(() => {
       console.log('Вызов состоялся!!!');
       });
+
+//получение данных, храниящихся на сервере (карты)
+getInitialCards()
+.then( (data) => {
+    tapeImg.src = data.link;
+    tapeImg.alt = data.name;
+    tapeTitle.textContent = data.name;
+    console.log(data)
+})
+.catch(console.log)
+.finally(() => {
+    console.log('Карты получены!!!');
+    });
+
 
 openEditButton.addEventListener("click", function () {
     
