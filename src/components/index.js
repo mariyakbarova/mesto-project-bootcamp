@@ -2,7 +2,7 @@ import '../pages/index.css';
 
 import { mestoSelectors, initialCards } from './data';
 import { resetErrors, enableValidation } from './validate';
-import { popupImg, createTape, tapeElement, tapeImg, tapeTitle } from './card';
+import { popupImg, createTape } from './card';
 import {
     popupAbout, popupAdd, popupAvatar,
     submitFormProfile, submitFormPlace, submitFormAvatar,

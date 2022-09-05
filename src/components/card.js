@@ -1,21 +1,21 @@
 //функции для работы с карточками проекта Mesto
 import { openPopup } from "./utils";
-import { changeCardTape } from "./api";
 // import { getInitialCards } from "./api";
 
 export const popupImg = document.querySelector('#popup-image');
-export const tapeTemplate = document.querySelector('#tapes').content;
 
-export const tapeElement = tapeTemplate.querySelector('.tapes__elements')
-export const tapeImg = tapeElement.querySelector('.tapes__photo');
-export const tapeTitle = tapeElement.querySelector('.tapes__photo-name'); 
+export function createTape(card) {
 
-export function createTape(name, src) {
+    const tapeTemplate = document.querySelector('#tapes').content;
+    const tapeElement = tapeTemplate.querySelector('.tapes__elements')
     const element = tapeElement.cloneNode(true)
+    const tapeImg = element.querySelector('.tapes__photo');
+    const tapeTitle = element.querySelector('.tapes__photo-name'); 
 
-    tapeImg.src = src;
-    tapeImg.alt = name;
-    tapeTitle.textContent = name;
+    tapeImg.src = card.link;
+    tapeImg.alt = card.name;
+    tapeTitle.textContent = card.name;
+    tapeTemplate.id = card._id;
 
 
     tapeImg.addEventListener('click', function(evt) {
