@@ -61,9 +61,7 @@ export function submitFormPlace(e) {
 
     createCardTape({ link, name })
         .then((data) => {
-            createTape(card);
-            console.log(card);
-            console.dir(data)
+            container.prepend(createTape(data));
         })
         .catch(console.log)
         .finally(() => {

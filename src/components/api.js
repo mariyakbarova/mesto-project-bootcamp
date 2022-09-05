@@ -69,7 +69,7 @@ export function getInitialCards() {
 
 //отправка карточек на сервер
 
-export function createCardTape(data) {
+export function createCardTape() {
   return fetch('https://nomoreparties.co/v1/wbc-cohort-1/cards', {
     method: 'POST',
     headers: {
