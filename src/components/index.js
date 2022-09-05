@@ -55,9 +55,9 @@ getInitialCards()
         // pictureInput.src = data.link;
         console.log(data)
         
-        data.forEach((card) => {
+        data.reverse().forEach((card) => {
             const tape = createTape(card)
-            container.prepend('beforeend', tape)
+            container.prepend(tape)
         })
     })
     .catch(console.log)
