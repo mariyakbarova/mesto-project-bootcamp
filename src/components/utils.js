@@ -21,8 +21,8 @@ export const handleToggleLike = (id, likeButton, likeCounter) => {
      const isLiked = likeButton.classList.contains('tapes__button_active');
 
     switchLike( id, isLiked)
-      .then((_id) => {
-        console.dir(_id)
+      .then(({ likes }) => {
+        likeCounter.textContent = likes.length;
        })
       .catch(console.dir); // Выведем ошибку
     }

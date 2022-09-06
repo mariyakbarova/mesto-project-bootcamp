@@ -20,6 +20,7 @@ export function createTape(card) {
     tapeImg.alt = card.name;
     tapeTitle.textContent = card.name;
     element.id = card._id;
+    likeCounter.textContent = card.likes.length;
 
     const handleImageClick = (evt) => {
         popupImg.querySelector('.popup__img').src = evt.target.src;
@@ -32,6 +33,7 @@ export function createTape(card) {
     const handleLikeOnClick = (evt) => {
         handleToggleLike(card._id, likeButton, likeCounter);
     }
+
 
     likeButton.addEventListener('click', handleLikeOnClick);
  
