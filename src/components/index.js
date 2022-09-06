@@ -20,6 +20,8 @@ export const professionInput = popupAbout.querySelector(".popup__form-profession
 export const titleInput = document.querySelector('#title');
 export const pictureInput = document.querySelector('#picture');
 
+let currentUserId = '';
+
 const openEditButton = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 const avatarEditButton = document.querySelector('.profile__avatar');
@@ -41,6 +43,7 @@ getBasicData()
         profileName.textContent = data.name; //в контент переменной записывается значение с сервера
         profileJob.textContent = data.about;
         profileAvatar.style.backgroundImage = `url(${data.avatar})`;
+        currentUserId = data._id;
         // console.log(data);
     })
     .catch(console.log)

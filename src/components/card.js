@@ -4,7 +4,7 @@ import { openPopup, checkIfLiked, handleToggleLike } from "./utils";
 
 export const popupImg = document.querySelector('#popup-image');
 
-export function createTape(card) {
+export function createTape(card, userId) {
 
     const tapeTemplate = document.querySelector('#tapes').content;
     const tapeElement = tapeTemplate.querySelector('.tapes__elements')
@@ -31,7 +31,7 @@ export function createTape(card) {
     tapeImg.addEventListener('click', handleImageClick);
 
     const handleLikeOnClick = (evt) => {
-        handleToggleLike(card._id, likeButton, likeCounter);
+        handleToggleLike(card._id, userId, likeButton, likeCounter);
     }
 
 

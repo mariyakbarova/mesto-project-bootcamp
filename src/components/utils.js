@@ -16,7 +16,9 @@ export function closePopup(popup) {
 
 export const checkIfLiked = (likes, userId) => likes.some((item) => item._id === userId);
 
-export const handleToggleLike = (id, likeButton, likeCounter) => {
+
+export const handleToggleLike = (id, userId, likeButton, likeCounter) => {
+    сonsole.log(userId)
     // узнаём лайкнута ли карточка изначально
      const isLiked = likeButton.classList.contains('tapes__button_active');
 
