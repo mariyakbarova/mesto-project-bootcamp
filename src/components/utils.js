@@ -20,15 +20,21 @@ export const checkIfLiked = (likes, userId) => likes.some((item) => item._id ===
 export const handleToggleLike = (id, userId, likeButton, likeCounter) => {
     console.log(userId)
     // узнаём лайкнута ли карточка изначально
-     const isLiked = likeButton.classList.contains('tapes__button_active');
+    const isLiked = likeButton.classList.contains('tapes__button_active');
 
-    switchLike( id, isLiked)
-      .then(({ likes }) => {
-        likeCounter.textContent = likes.length;
-        console.log(`Liked? ${checkIfLiked(likes, userId)}!`); 
-       })
-      .catch(console.dir); // Выведем ошибку
-    }
+    switchLike(id, isLiked)
+        .then(({ likes }) => {
+            likeCounter.textContent = likes.length;
+            console.log(`Liked? ${checkIfLiked(likes, userId)}!`);
+
+            if (checkIfLiked(likes, userId)) {
+                likeButton.classList.add('tapes__button_active');
+            } else {
+                likeButton.classList.remove('tapes__button_active');
+            };
+        })
+        .catch(console.dir); // Выведем ошибку
+}
 
 
 
