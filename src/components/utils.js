@@ -18,13 +18,14 @@ export const checkIfLiked = (likes, userId) => likes.some((item) => item._id ===
 
 
 export const handleToggleLike = (id, userId, likeButton, likeCounter) => {
-    сonsole.log(userId)
+    console.log(userId)
     // узнаём лайкнута ли карточка изначально
      const isLiked = likeButton.classList.contains('tapes__button_active');
 
     switchLike( id, isLiked)
       .then(({ likes }) => {
         likeCounter.textContent = likes.length;
+        console.log(`Liked? ${checkIfLiked(likes, userId)}!`); 
        })
       .catch(console.dir); // Выведем ошибку
     }

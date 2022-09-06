@@ -20,7 +20,7 @@ export const professionInput = popupAbout.querySelector(".popup__form-profession
 export const titleInput = document.querySelector('#title');
 export const pictureInput = document.querySelector('#picture');
 
-let currentUserId = '';
+export let currentUserId = '';
 
 const openEditButton = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
@@ -54,7 +54,7 @@ getInitialCards()
         console.log(data)
 
         data.reverse().forEach((card) => {
-            const tape = createTape(card)
+            const tape = createTape(card, currentUserId)
             container.prepend(tape)
         })
     })

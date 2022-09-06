@@ -1,7 +1,7 @@
 //работa модальных окон
 import { closePopup } from './utils';
 import { createTape } from './card';
-import { container, nameInput, profileName, profileJob, professionInput, titleInput, pictureInput } from './index';
+import { container, nameInput, profileName, profileJob, professionInput, titleInput, pictureInput, currentUserId } from './index';
 import { changeProfileData, changeProfileAvatar, createCardTape } from './api';
 
 export const popupAbout = document.querySelector('#popup-edit');
@@ -59,7 +59,7 @@ export function submitFormPlace(e) {
 
     createCardTape({ link, name })
         .then((data) => {
-            container.prepend(createTape(data));
+            container.prepend(createTape(data, currentUserId));
         })
         .catch(console.log)
         .finally(() => {
