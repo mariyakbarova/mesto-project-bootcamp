@@ -30,7 +30,7 @@ export function createTape(card) {
     tapeImg.addEventListener('click', handleImageClick);
 
     const handleLikeOnClick = (evt) => {
-        handleToggleLike(id, likeButton, likeCounter);
+        handleToggleLike(card._id, likeButton, likeCounter);
     }
 
     likeButton.addEventListener('click', handleLikeOnClick);

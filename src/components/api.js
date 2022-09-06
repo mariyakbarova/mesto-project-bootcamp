@@ -82,7 +82,7 @@ export function createCardTape(data) {
 
 
 export const switchLike = (id, isLiked) => {
-  return fetch(`https://nomoreparties.co/v1/wbc-cohort-1/cards/${id}`, {
+  return fetch(`https://nomoreparties.co/v1/wbc-cohort-1/cards/likes/${id}`, {
     headers: {
       method:  isLiked ? 'DELETE' : 'PUT',
       authorization: '0ece32e5-0b11-41b4-bea5-614b42e17cd3',
