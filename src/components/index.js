@@ -17,6 +17,8 @@ export const profileName = document.querySelector('.profile__name');
 export const profileJob = document.querySelector('.profile__profession');
 export const nameInput = popupAbout.querySelector(".popup__form-name");
 export const professionInput = popupAbout.querySelector(".popup__form-profession");
+export const titleInput = document.querySelector('#title');
+export const pictureInput = document.querySelector('#picture');
 
 const openEditButton = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
@@ -24,8 +26,7 @@ const avatarEditButton = document.querySelector('.profile__avatar');
 const formEdit = document.querySelector('#profile-edit');
 const formAdd = document.querySelector('#profile-add');
 const formAvatar = document.querySelector('#avatar-form');
-export const titleInput = document.querySelector('#title');
-export const pictureInput = document.querySelector('#picture');
+
 
 
 initPopup(popupAbout);
@@ -43,27 +44,19 @@ getBasicData()
         // console.log(data);
     })
     .catch(console.log)
-    // .finally(() => {
-    //     console.log('Вызов состоялся!!!');
-    // });
 
 //получение данных, храниящихся на сервере (карты)
 getInitialCards()
     .then((data) => {
-        // titleInput.textContent = data.name;
-        // titleInput.alt = data.name;
-        // pictureInput.src = data.link;
         console.log(data)
-        
+
         data.reverse().forEach((card) => {
             const tape = createTape(card)
             container.prepend(tape)
         })
     })
     .catch(console.log)
-    // .finally(() => {
-    //     console.log('Карты получены!!!');
-    // });
+
 
 
 openEditButton.addEventListener("click", function () {
@@ -98,6 +91,8 @@ formEdit.addEventListener('submit', submitFormProfile);
 formAdd.addEventListener('submit', submitFormPlace);
 formAvatar.addEventListener('submit', submitFormAvatar);
 
+
+
 container.addEventListener('click', function (e) {
     if (e.target.className === 'tapes__delete') {
         const listItem = e.target.closest('.tapes__elements')
@@ -109,25 +104,9 @@ container.addEventListener('click', function (e) {
     }
 })
 
-// initialCards.forEach((card) => {
-//     const tape = createTape(card.name, card.link)
-//     container.insertAdjacentElement('beforeend', tape)
-// })
-
 
 enableValidation(mestoSelectors);
 
-
-
-// import { getInitialCards } from './api.js'
-
-// getInitialCards()
-//   .then((result) => {
-//     // обрабатываем результат
-//   })
-//   .catch((err) => {
-//     console.log(err); // выводим ошибку в консоль
-//   }); 
 
 
 

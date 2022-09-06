@@ -18,7 +18,6 @@ export function submitFormAvatar(e) {
     e.preventDefault();
     console.dir(profileAvatar);
     console.dir(avatarInput);
-    // profileAvatar.style.backgroundImage = `url(${avatarInput.value})`;
     changeProfileAvatar(avatarInput.value)
         .then((data) => {
             profileAvatar.style.backgroundImage = `url(${avatarInput.value})`;
@@ -54,7 +53,6 @@ export function submitFormPlace(e) {
     e.preventDefault()
     const name = popupAdd.querySelector('#title').value;
     const link = popupAdd.querySelector('#picture').value;
-    // container.prepend(createTape(name, src))
 
     console.dir(titleInput);
     console.dir(pictureInput);

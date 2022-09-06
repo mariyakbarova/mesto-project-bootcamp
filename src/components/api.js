@@ -27,8 +27,6 @@ export function getBasicData() {
 
 //отправка на сервер данных имени и профессии, аватара
 export function changeProfileData(name, about) {
-  // console.log(name);
-  // console.log(about);
   return fetch('https://nomoreparties.co/v1/wbc-cohort-1/users/me', {
     method: 'PATCH',
     headers: {
@@ -69,7 +67,7 @@ export function getInitialCards() {
 
 //отправка карточек на сервер
 
-export function createCardTape() {
+export function createCardTape(data) {
   return fetch('https://nomoreparties.co/v1/wbc-cohort-1/cards', {
     method: 'POST',
     headers: {
@@ -77,6 +75,19 @@ export function createCardTape() {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
+  })
+    .then(checkResponse)
+}
+
+
+
+export const switchLike = (id, isLiked) => {
+  return fetch(`https://nomoreparties.co/v1/wbc-cohort-1/cards/${id}`, {
+    headers: {
+      method:  isLiked ? 'DELETE' : 'PUT',
+      authorization: '0ece32e5-0b11-41b4-bea5-614b42e17cd3',
+      'Content-Type': 'application/json'
+    }
   })
     .then(checkResponse)
 }
