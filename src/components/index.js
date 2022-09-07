@@ -2,15 +2,16 @@ import '../pages/index.css';
 
 import { mestoSelectors, initialCards } from './data';
 import { resetErrors, enableValidation } from './validate';
-import { popupImg, createTape } from './card';
+import { popupImg, createTape, handleDeleteCard } from './card';
 import {
     popupAbout, popupAdd, popupAvatar,
     submitFormProfile, submitFormPlace, submitFormAvatar,
     initPopup,
-    profileAvatar
+    profileAvatar, popupCardDelete
 } from './modal';
 import { openPopup } from './utils';
 import { getBasicData, getInitialCards } from './api';
+
 
 export const container = document.querySelector('.tapes');
 export const profileName = document.querySelector('.profile__name');
@@ -28,14 +29,13 @@ const avatarEditButton = document.querySelector('.profile__avatar');
 const formEdit = document.querySelector('#profile-edit');
 const formAdd = document.querySelector('#profile-add');
 const formAvatar = document.querySelector('#avatar-form');
-
-
+const formDelete = document.querySelector('#delete-form');
 
 initPopup(popupAbout);
 initPopup(popupAdd);
 initPopup(popupImg);
 initPopup(popupAvatar);
-
+initPopup(popupCardDelete);
 
 //получение хранящихся на сервере данных (имя, профессия, аватар)
 getBasicData()
@@ -59,8 +59,6 @@ getInitialCards()
         })
     })
     .catch(console.log)
-
-
 
 openEditButton.addEventListener("click", function () {
 
@@ -93,16 +91,15 @@ avatarEditButton.addEventListener('click', function () {
 formEdit.addEventListener('submit', submitFormProfile);
 formAdd.addEventListener('submit', submitFormPlace);
 formAvatar.addEventListener('submit', submitFormAvatar);
+formDelete.addEventListener('submit', handleDeleteCard);
 
 
-
-container.addEventListener('click', function (e) {
-    if (e.target.className === 'tapes__delete') {
-        const listItem = e.target.closest('.tapes__elements')
-        listItem.remove()
-    }
-})
-
+// container.addEventListener('click', function (e) {
+//     if (e.target.className === 'tapes__delete') {
+//         const listItem = e.target.closest('.tapes__elements')
+//         listItem.remove()
+//     }
+// })
 
 enableValidation(mestoSelectors);
 

@@ -1,7 +1,6 @@
 //утилитарные функции, которые используются в работе сразу нескольких других функций
-import { handleEscPressed } from "./modal";
+import { handleEscPressed, popupCardDelete } from "./modal";
 import { deleteCardOnServer, switchLike } from "./api";
-import { container } from ".";
 
 export function openPopup(popup) {
     document.addEventListener('keydown', handleEscPressed)
@@ -16,7 +15,6 @@ export function closePopup(popup) {
 // лайки
 
 export const checkIfLiked = (likes, userId) => likes.some((item) => item._id === userId);
-
 
 export const handleToggleLike = (id, userId, likeButton, likeCounter) => {
     console.log(userId)
@@ -39,18 +37,16 @@ export const handleToggleLike = (id, userId, likeButton, likeCounter) => {
 
 // export const checkIdOwnerOnCard = (userId, cardId) => userId.some((item) => item._id === cardId)
 
-export const handleDeleteCard = ( cardElement ) => {
-    // if (card.owner._id !== userId) {
-    //     deleteButton.classList.remove('tapes__delete')
-    // }
-    deleteCardOnServer(cardElement.id)
-    .then (() => {
-        cardElement.remove()
-    })
-    .catch (console.log);
-
-
-}
+// export const handleDeleteCard = (evt) => {
+//     evt.preventDefault();
+//     return deleteCardOnServer(currentDeleteCard.id)
+//         .then(() => {
+//             currentDeleteCard.remove()
+//             closePopup(popupCardDelete);
+//             currentDeleteCard = null;
+//         })
+//         .catch(console.log);
+// }
 
 
 

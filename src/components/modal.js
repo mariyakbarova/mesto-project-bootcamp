@@ -7,15 +7,14 @@ import { changeProfileData, changeProfileAvatar, createCardTape } from './api';
 export const popupAbout = document.querySelector('#popup-edit');
 export const popupAdd = document.querySelector('#popup-add');
 export const popupAvatar = document.querySelector('#popup-avatar');
+export const popupCardDelete = document.querySelector('#popup-delete-card')
 
 export const profileAvatar = document.querySelector('#profile-avatar');
 const avatarInput = popupAvatar.querySelector('#avatar');
 
-const likeButton = document.querySelector('#like');
-const likeCounter = document.querySelector('#like-counter');
-
 export function submitFormAvatar(e) {
     e.preventDefault();
+    loadigSaveText(true, popupAvatar);
     console.dir(profileAvatar);
     console.dir(avatarInput);
     changeProfileAvatar(avatarInput.value)
@@ -25,6 +24,7 @@ export function submitFormAvatar(e) {
         .catch(console.log)
         .finally(() => {
             console.log('Аватар загрузился');
+            loadigSaveText(false, popupAvatar)
         });
 
     closePopup(popupAvatar);
@@ -32,6 +32,7 @@ export function submitFormAvatar(e) {
 
 export function submitFormProfile(e) {
     e.preventDefault();
+    loadigSaveText(true, popupAbout);
     console.dir(nameInput);
     console.dir(professionInput);
 
@@ -44,11 +45,13 @@ export function submitFormProfile(e) {
         .catch(console.log)
         .finally(() => {
             console.log('Вызов состоялся.');
+            loadigSaveText(false, popupAbout);
         });
 };
 
 export function submitFormPlace(e) {
     e.preventDefault()
+    loadigSaveText(true, popupAdd);
     const name = popupAdd.querySelector('#title').value;
     const link = popupAdd.querySelector('#picture').value;
 
@@ -63,8 +66,10 @@ export function submitFormPlace(e) {
         .catch(console.log)
         .finally(() => {
             console.log('Карты отправлены');
+            loadigSaveText(false, popupAdd);
         });
 };
+
 
 export const handleEscPressed = (evt) => {
     if (evt.key === 'Escape') {
@@ -74,6 +79,7 @@ export const handleEscPressed = (evt) => {
 }
 
 export function closePopupOverlay(evt) {
+    console.log(evt.target)
     if (evt.target === evt.currentTarget) {
         const popup = document.querySelector('.popup_opened');
         closePopup(popup)
@@ -82,12 +88,21 @@ export function closePopupOverlay(evt) {
 
 export function initPopup(element) {
     const closeBtn = element.querySelector('.popup__exit')
-
     element.addEventListener('click', closePopupOverlay);
-
     closeBtn.addEventListener('click', () => {
         closePopup(element)
     })
 }
+
+export function loadigSaveText(isLoading, popup) {
+    const buttonSave = popup.querySelector('.popup__save');
+    if (isLoading) {
+        buttonSave.textContent = 'Сохранение...'
+        buttonSave.disabled = true;
+    } else {
+        buttonSave.textContent = 'Сохранить'
+        buttonSave.disabled = false;
+    }
+};
 
 
