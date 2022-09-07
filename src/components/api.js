@@ -91,3 +91,15 @@ export const switchLike = (id, isLiked) => {
   })
     .then(checkResponse)
 }
+
+export const deleteCardOnServer = (id) => {
+  return fetch(`https://nomoreparties.co/v1/wbc-cohort-1/cards/${id}` , {
+    method: 'DELETE',
+    headers: {
+      authorization: '0ece32e5-0b11-41b4-bea5-614b42e17cd3',
+      'Content-Type': 'application/json'
+    }
+
+  })
+  .then(checkResponse)
+}

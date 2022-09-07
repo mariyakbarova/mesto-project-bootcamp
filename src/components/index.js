@@ -101,10 +101,6 @@ container.addEventListener('click', function (e) {
         const listItem = e.target.closest('.tapes__elements')
         listItem.remove()
     }
-
-    if (e.target.classList.contains('tapes__button')) {
-        e.target.classList.toggle('tapes__button_active')
-    }
 })
 
 

@@ -39,14 +39,12 @@ export function submitFormProfile(e) {
         .then((data) => {
             profileName.textContent = data.name;
             profileJob.textContent = data.about;
+            closePopup(popupAbout)
         })
         .catch(console.log)
         .finally(() => {
             console.log('Вызов состоялся.');
         });
-
-
-    closePopup(popupAbout);
 };
 
 export function submitFormPlace(e) {
@@ -60,13 +58,12 @@ export function submitFormPlace(e) {
     createCardTape({ link, name })
         .then((data) => {
             container.prepend(createTape(data, currentUserId));
+            closePopup(popupAdd)
         })
         .catch(console.log)
         .finally(() => {
             console.log('Карты отправлены');
         });
-
-    closePopup(popupAdd)
 };
 
 export const handleEscPressed = (evt) => {

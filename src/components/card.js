@@ -1,5 +1,6 @@
 //функции для работы с карточками проекта Mesto
-import { openPopup, checkIfLiked, handleToggleLike } from "./utils";
+import { switchLike } from "./api";
+import { openPopup, checkIfLiked, handleToggleLike, handleDeleteCard } from "./utils";
 // import { getInitialCards } from "./api";
 
 export const popupImg = document.querySelector('#popup-image');
@@ -22,6 +23,23 @@ export function createTape(card, userId) {
     element.id = card._id;
     likeCounter.textContent = card.likes.length;
 
+
+    const handleDeleteClick = () => {
+        handleDeleteCard(element)
+    }
+   
+    if (card.owner._id !== userId) {
+        deleteCard.remove()
+    } else {
+        deleteCard.addEventListener('click', handleDeleteClick);
+    }
+
+    if (checkIfLiked(card.likes, userId)) {
+        likeButton.classList.add('tapes__button_active');
+    } else {
+        likeButton.classList.remove('tapes__button_active');
+    };
+
     const handleImageClick = (evt) => {
         popupImg.querySelector('.popup__img').src = evt.target.src;
         popupImg.querySelector('.popup__img-name').textContent = evt.target.alt;
@@ -34,9 +52,12 @@ export function createTape(card, userId) {
         handleToggleLike(card._id, userId, likeButton, likeCounter);
     }
 
-
     likeButton.addEventListener('click', handleLikeOnClick);
- 
+
+    
+
+
+
     return element;
 };
 
