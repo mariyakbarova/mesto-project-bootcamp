@@ -7,7 +7,7 @@ import { deleteCardOnServer } from "./api";
 export const popupImg = document.querySelector('#popup-image');
 export let currentDeleteCard = null;
 
-export function createTape(card, userId) {
+export function createCard(card, userId) {
 
     const tapeTemplate = document.querySelector('#tapes').content;
     const tapeElement = tapeTemplate.querySelector('.tapes__elements')
@@ -18,24 +18,18 @@ export function createTape(card, userId) {
     const likeButton = element.querySelector('.tapes__button');
     const likeCounter = element.querySelector('.tapes__like-counter');
     const deleteCard = element.querySelector('.tapes__delete');
-    
-
 
     tapeImg.src = card.link;
     tapeImg.alt = card.name;
     tapeTitle.textContent = card.name;
     element.id = card._id;
     likeCounter.textContent = card.likes.length;
-
-    // const handleDeleteClick = () => {
-    //     handleDeleteCard(element)
-    // }
    
     if (card.owner._id !== userId) {
         deleteCard.remove()
     } else {
         deleteCard.addEventListener('click', function (evt) {
-            currentDeleteCard = evt.target.closest('.tapes__elements'); //определяем краточку и записываем во временную переменную
+            currentDeleteCard = element;
             openPopup(popupCardDelete);
         });
     }

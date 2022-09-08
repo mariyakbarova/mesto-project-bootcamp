@@ -2,7 +2,7 @@ import '../pages/index.css';
 
 import { mestoSelectors, initialCards } from './data';
 import { resetErrors, enableValidation } from './validate';
-import { popupImg, createTape, handleDeleteCard } from './card';
+import { popupImg, createCard, handleDeleteCard } from './card';
 import {
     popupAbout, popupAdd, popupAvatar,
     submitFormProfile, submitFormPlace, submitFormAvatar,
@@ -38,27 +38,45 @@ initPopup(popupAvatar);
 initPopup(popupCardDelete);
 
 //получение хранящихся на сервере данных (имя, профессия, аватар)
-getBasicData()
-    .then((data) => {
+// getBasicData()
+//     .then((data) => {
+//         profileName.textContent = data.name; //в контент переменной записывается значение с сервера
+//         profileJob.textContent = data.about;
+//         profileAvatar.style.backgroundImage = `url(${data.avatar})`;
+//         currentUserId = data._id;
+//         // console.log(data);
+//     })
+//     .catch(console.log)
+
+// получение данных, храниящихся на сервере (карты)
+// getInitialCards()
+//     .then((data) => {
+//         console.log(data)
+
+//         data.reverse().forEach((card) => {
+//             const tape = createCard(card, currentUserId)
+//             container.prepend(tape)
+//         })
+//     })
+//     .catch(console.log)
+
+
+    Promise.all([getBasicData(), getInitialCards()])
+    // тут деструктурируете ответ от сервера, чтобы было понятнее, что пришло
+      .then(([data]) => {
         profileName.textContent = data.name; //в контент переменной записывается значение с сервера
         profileJob.textContent = data.about;
         profileAvatar.style.backgroundImage = `url(${data.avatar})`;
         currentUserId = data._id;
-        // console.log(data);
-    })
-    .catch(console.log)
-
-//получение данных, храниящихся на сервере (карты)
-getInitialCards()
-    .then((data) => {
-        console.log(data)
-
-        data.reverse().forEach((card) => {
-            const tape = createTape(card, currentUserId)
+          // и тут отрисовка карточек
+          data.reverse().forEach((card) => {
+            const tape = createCard(card, currentUserId)
             container.prepend(tape)
         })
-    })
-    .catch(console.log)
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
 openEditButton.addEventListener("click", function () {
 
