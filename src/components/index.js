@@ -25,6 +25,7 @@ export let currentUserId = '';
 
 const openEditButton = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
+const avatarInput = document.querySelector('#avatar');
 const avatarEditButton = document.querySelector('.profile__avatar');
 const formEdit = document.querySelector('#profile-edit');
 const formAdd = document.querySelector('#profile-add');
@@ -98,8 +99,6 @@ buttonAdd.addEventListener('click', function () {
 });
 
 avatarEditButton.addEventListener('click', function () {
-    const avatarInput = document.querySelector('#avatar');
-
     avatarInput.value = '';
 
     resetErrors(formAvatar, mestoSelectors);

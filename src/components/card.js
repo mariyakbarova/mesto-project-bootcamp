@@ -2,7 +2,7 @@
 import { switchLike } from "./api";
 import { openPopup, closePopup, checkIfLiked, handleToggleLike } from "./utils";
 import { popupCardDelete } from "./modal";
-import { deleteCardOnServer } from "./api";
+import { deleteCardOnServer, switchLike } from "./api";
 
 export const popupImg = document.querySelector('#popup-image');
 export let currentDeleteCard = null;
@@ -55,6 +55,25 @@ export function createCard(card, userId) {
     likeButton.addEventListener('click', handleLikeOnClick);
 
     return element;
+};
+
+export const handleToggleLike = (id, userId, likeButton, likeCounter) => {
+    console.log(userId)
+    // узнаём лайкнута ли карточка изначально
+    const isLiked = likeButton.classList.contains('tapes__button_active');
+
+    switchLike(id, isLiked)
+        .then(({ likes }) => {
+            likeCounter.textContent = likes.length;
+            console.log(`Liked? ${checkIfLiked(likes, userId)}!`);
+
+            if (checkIfLiked(likes, userId)) {
+                likeButton.classList.add('tapes__button_active');
+            } else {
+                likeButton.classList.remove('tapes__button_active');
+            };
+        })
+        .catch(console.dir); // Выведем ошибку
 };
 
 export function handleDeleteCard(evt) {

@@ -9,6 +9,9 @@ export const popupAdd = document.querySelector('#popup-add');
 export const popupAvatar = document.querySelector('#popup-avatar');
 export const popupCardDelete = document.querySelector('#popup-delete-card')
 
+const name = popupAdd.querySelector('#title').value;
+const link = popupAdd.querySelector('#picture').value;
+
 export const profileAvatar = document.querySelector('#profile-avatar');
 const avatarInput = popupAvatar.querySelector('#avatar');
 
@@ -26,8 +29,6 @@ export function submitFormAvatar(e) {
             console.log('Аватар загрузился');
             loadigSaveText(false, popupAvatar)
         });
-
-    closePopup(popupAvatar);
 }
 
 export function submitFormProfile(e) {
@@ -52,8 +53,6 @@ export function submitFormProfile(e) {
 export function submitFormPlace(e) {
     e.preventDefault()
     loadigSaveText(true, popupAdd);
-    const name = popupAdd.querySelector('#title').value;
-    const link = popupAdd.querySelector('#picture').value;
 
     console.dir(titleInput);
     console.dir(pictureInput);
@@ -79,7 +78,6 @@ export const handleEscPressed = (evt) => {
 }
 
 export function closePopupOverlay(evt) {
-    console.log(evt.target)
     if (evt.target === evt.currentTarget) {
         const popup = document.querySelector('.popup_opened');
         closePopup(popup)
