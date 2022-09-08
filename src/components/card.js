@@ -1,10 +1,10 @@
 //функции для работы с карточками проекта Mesto
-import { switchLike } from "./api";
-import { openPopup, closePopup, checkIfLiked, handleToggleLike } from "./utils";
+import { openPopup, closePopup, checkIfLiked } from "./utils";
 import { popupCardDelete } from "./modal";
 import { deleteCardOnServer, switchLike } from "./api";
 
 export const popupImg = document.querySelector('#popup-image');
+export const popupImgName = document.querySelector('.popup__img-name');
 export let currentDeleteCard = null;
 
 export function createCard(card, userId) {
@@ -13,7 +13,7 @@ export function createCard(card, userId) {
     const tapeElement = tapeTemplate.querySelector('.tapes__elements')
     const element = tapeElement.cloneNode(true)
     const tapeImg = element.querySelector('.tapes__photo');
-    const tapeTitle = element.querySelector('.tapes__photo-name'); 
+    const tapeTitle = element.querySelector('.tapes__photo-name');
 
     const likeButton = element.querySelector('.tapes__button');
     const likeCounter = element.querySelector('.tapes__like-counter');
@@ -24,7 +24,7 @@ export function createCard(card, userId) {
     tapeTitle.textContent = card.name;
     element.id = card._id;
     likeCounter.textContent = card.likes.length;
-   
+
     if (card.owner._id !== userId) {
         deleteCard.remove()
     } else {
@@ -41,8 +41,11 @@ export function createCard(card, userId) {
     };
 
     const handleImageClick = (evt) => {
-        popupImg.querySelector('.popup__img').src = evt.target.src;
-        popupImg.querySelector('.popup__img-name').textContent = evt.target.alt;
+
+        popupImg.src = evt.target.src;
+        popupImg.alt = evt.target.alt;
+        popupImgName.textContent = evt.target.name;
+
         openPopup(popupImg)
     }
 
@@ -57,7 +60,7 @@ export function createCard(card, userId) {
     return element;
 };
 
-export const handleToggleLike = (id, userId, likeButton, likeCounter) => {
+export function handleToggleLike(id, userId, likeButton, likeCounter) {
     console.log(userId)
     // узнаём лайкнута ли карточка изначально
     const isLiked = likeButton.classList.contains('tapes__button_active');

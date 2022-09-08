@@ -9,4 +9,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .5s, opacity .5s ease;
 }

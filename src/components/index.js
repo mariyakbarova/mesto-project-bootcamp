@@ -1,6 +1,6 @@
 import '../pages/index.css';
 
-import { mestoSelectors, initialCards } from './data';
+import { mestoSelectors} from './data';
 import { resetErrors, enableValidation } from './validate';
 import { popupImg, createCard, handleDeleteCard } from './card';
 import {
@@ -11,7 +11,6 @@ import {
 } from './modal';
 import { openPopup } from './utils';
 import { getBasicData, getInitialCards } from './api';
-
 
 export const container = document.querySelector('.tapes');
 export const profileName = document.querySelector('.profile__name');
@@ -38,39 +37,15 @@ initPopup(popupImg);
 initPopup(popupAvatar);
 initPopup(popupCardDelete);
 
-//получение хранящихся на сервере данных (имя, профессия, аватар)
-// getBasicData()
-//     .then((data) => {
-//         profileName.textContent = data.name; //в контент переменной записывается значение с сервера
-//         profileJob.textContent = data.about;
-//         profileAvatar.style.backgroundImage = `url(${data.avatar})`;
-//         currentUserId = data._id;
-//         // console.log(data);
-//     })
-//     .catch(console.log)
-
-// получение данных, храниящихся на сервере (карты)
-// getInitialCards()
-//     .then((data) => {
-//         console.log(data)
-
-//         data.reverse().forEach((card) => {
-//             const tape = createCard(card, currentUserId)
-//             container.prepend(tape)
-//         })
-//     })
-//     .catch(console.log)
-
-
     Promise.all([getBasicData(), getInitialCards()])
     // тут деструктурируете ответ от сервера, чтобы было понятнее, что пришло
-      .then(([data]) => {
+      .then(([data, cards]) => {
         profileName.textContent = data.name; //в контент переменной записывается значение с сервера
         profileJob.textContent = data.about;
         profileAvatar.style.backgroundImage = `url(${data.avatar})`;
         currentUserId = data._id;
           // и тут отрисовка карточек
-          data.reverse().forEach((card) => {
+          cards.reverse().forEach((card) => {
             const tape = createCard(card, currentUserId)
             container.prepend(tape)
         })
@@ -110,16 +85,4 @@ formAdd.addEventListener('submit', submitFormPlace);
 formAvatar.addEventListener('submit', submitFormAvatar);
 formDelete.addEventListener('submit', handleDeleteCard);
 
-
-// container.addEventListener('click', function (e) {
-//     if (e.target.className === 'tapes__delete') {
-//         const listItem = e.target.closest('.tapes__elements')
-//         listItem.remove()
-//     }
-// })
-
 enableValidation(mestoSelectors);
-
-
-
-
