@@ -44,7 +44,7 @@ export function createCard(card, userId) {
     const handleImageClick = (evt) => {
 
         popupPicture.src = evt.target.src;
-        popupPictureName.alt = evt.target.alt;
+        popupPicture.alt = evt.target.alt;
         popupPictureName.textContent = evt.target.alt;
 
         openPopup(popupImg)

@@ -8,7 +8,6 @@ export const popupAbout = document.querySelector('#popup-edit');
 export const popupAdd = document.querySelector('#popup-add');
 export const popupAvatar = document.querySelector('#popup-avatar');
 export const popupCardDelete = document.querySelector('#popup-delete-card')
-export const buttonSave = document.querySelector('.popup__save');
 
 const nameInputImg = popupAdd.querySelector('#title');
 const linkInputImg = popupAdd.querySelector('#picture');

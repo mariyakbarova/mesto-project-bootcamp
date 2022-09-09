@@ -1,5 +1,4 @@
 //утилитарные функции, которые используются в работе сразу нескольких других функций
-import { buttonSave } from "./modal";
 
 export function openPopup(popup) {
     document.addEventListener('keydown', handleEscPressed)
@@ -26,12 +25,13 @@ export function closePopupOverlay(evt) {
 }
 
 export function loadigSaveText(isLoading, popup) {
+    const profileSubmitButton = popup.querySelector('.popup__save');
     if (isLoading) {
-        buttonSave.textContent = 'Сохранение...'
-        buttonSave.disabled = true;
+        profileSubmitButton.textContent = 'Сохранение...'
+        profileSubmitButton.disabled = true;
     } else {
-        buttonSave.textContent = 'Сохранить'
-        buttonSave.disabled = false;
+        profileSubmitButton.textContent = 'Сохранить'
+        profileSubmitButton.disabled = false;
     }
 }
 
