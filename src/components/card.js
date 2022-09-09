@@ -45,7 +45,7 @@ export function createCard(card, userId) {
 
         popupPicture.src = evt.target.src;
         popupPictureName.alt = evt.target.alt;
-        popupPictureName.textContent = evt.target.name;
+        popupPictureName.textContent = evt.target.alt;
 
         openPopup(popupImg)
     }
