@@ -25,13 +25,13 @@ export function closePopupOverlay(evt) {
 }
 
 export function loadigSaveText(isLoading, popup) {
-    const profileSubmitButton = popup.querySelector('.popup__save');
+    const submitButton = popup.querySelector('.popup__save');
     if (isLoading) {
-        profileSubmitButton.textContent = 'Сохранение...'
-        profileSubmitButton.disabled = true;
+        submitButton.textContent = 'Сохранение...'
+        submitButton.disabled = true;
     } else {
-        profileSubmitButton.textContent = 'Сохранить'
-        profileSubmitButton.disabled = false;
+        submitButton.textContent = 'Сохранить'
+        submitButton.disabled = false;
     }
 }
 
