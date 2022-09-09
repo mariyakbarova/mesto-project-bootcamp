@@ -4,7 +4,8 @@ import { popupCardDelete } from "./modal";
 import { deleteCardOnServer, switchLike } from "./api";
 
 export const popupImg = document.querySelector('#popup-image');
-export const popupImgName = document.querySelector('.popup__img-name');
+export const popupPictureName = popupImg.querySelector('.popup__img-name');
+export const popupPicture = popupImg.querySelector('.popup__img' )
 export let currentDeleteCard = null;
 
 export function createCard(card, userId) {
@@ -42,9 +43,9 @@ export function createCard(card, userId) {
 
     const handleImageClick = (evt) => {
 
-        popupImg.src = evt.target.src;
-        popupImg.alt = evt.target.alt;
-        popupImgName.textContent = evt.target.name;
+        popupPicture.src = evt.target.src;
+        popupPictureName.alt = evt.target.alt;
+        popupPictureName.textContent = evt.target.name;
 
         openPopup(popupImg)
     }

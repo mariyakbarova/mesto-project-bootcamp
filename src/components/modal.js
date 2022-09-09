@@ -1,5 +1,5 @@
 //работa модальных окон
-import { closePopup } from './utils';
+import { closePopup, closePopupOverlay, loadigSaveText } from './utils';
 import { createCard } from './card';
 import { container, nameInput, profileName, profileJob, professionInput, titleInput, pictureInput, currentUserId } from './index';
 import { changeProfileData, changeProfileAvatar, createCardTape } from './api';
@@ -8,9 +8,10 @@ export const popupAbout = document.querySelector('#popup-edit');
 export const popupAdd = document.querySelector('#popup-add');
 export const popupAvatar = document.querySelector('#popup-avatar');
 export const popupCardDelete = document.querySelector('#popup-delete-card')
+export const buttonSave = document.querySelector('.popup__save');
 
-const name = popupAdd.querySelector('#title').value;
-const link = popupAdd.querySelector('#picture').value;
+const nameInputImg = popupAdd.querySelector('#title');
+const linkInputImg = popupAdd.querySelector('#picture');
 
 export const profileAvatar = document.querySelector('#profile-avatar');
 const avatarInput = popupAvatar.querySelector('#avatar');
@@ -23,6 +24,7 @@ export function submitFormAvatar(e) {
     changeProfileAvatar(avatarInput.value)
         .then((data) => {
             profileAvatar.style.backgroundImage = `url(${avatarInput.value})`;
+            closePopup(popupAvatar)
         })
         .catch(console.log)
         .finally(() => {
@@ -57,6 +59,9 @@ export function submitFormPlace(e) {
     console.dir(titleInput);
     console.dir(pictureInput);
 
+    const  name = nameInputImg.value
+    const link = linkInputImg.value
+
     createCardTape({ link, name })
         .then((data) => {
             container.prepend(createCard(data, currentUserId));
@@ -69,38 +74,12 @@ export function submitFormPlace(e) {
         });
 };
 
-
-export const handleEscPressed = (evt) => {
-    if (evt.key === 'Escape') {
-        const popup = document.querySelector('.popup_opened');
-        closePopup(popup)
-    }
-}
-
-export function closePopupOverlay(evt) {
-    if (evt.target === evt.currentTarget) {
-        const popup = document.querySelector('.popup_opened');
-        closePopup(popup)
-    }
-}
-
 export function initPopup(element) {
     const closeBtn = element.querySelector('.popup__exit')
-    element.addEventListener('click', closePopupOverlay);
+    element.addEventListener('mousedown', closePopupOverlay);
     closeBtn.addEventListener('click', () => {
         closePopup(element)
     })
 }
-
-export function loadigSaveText(isLoading, popup) {
-    const buttonSave = popup.querySelector('.popup__save');
-    if (isLoading) {
-        buttonSave.textContent = 'Сохранение...'
-        buttonSave.disabled = true;
-    } else {
-        buttonSave.textContent = 'Сохранить'
-        buttonSave.disabled = false;
-    }
-};
 
 
