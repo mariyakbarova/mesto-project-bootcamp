@@ -18,8 +18,6 @@ const avatarInput = popupAvatar.querySelector('#avatar');
 export function submitFormAvatar(e) {
     e.preventDefault();
     loadigSaveText(true, popupAvatar);
-    console.dir(profileAvatar);
-    console.dir(avatarInput);
     changeProfileAvatar(avatarInput.value)
         .then((data) => {
             profileAvatar.style.backgroundImage = `url(${avatarInput.value})`;
@@ -35,8 +33,6 @@ export function submitFormAvatar(e) {
 export function submitFormProfile(e) {
     e.preventDefault();
     loadigSaveText(true, popupAbout);
-    console.dir(nameInput);
-    console.dir(professionInput);
 
     changeProfileData(nameInput.value, professionInput.value)
         .then((data) => {
@@ -54,9 +50,6 @@ export function submitFormProfile(e) {
 export function submitFormPlace(e) {
     e.preventDefault()
     loadigSaveText(true, popupAdd);
-
-    console.dir(titleInput);
-    console.dir(pictureInput);
 
     const  name = nameInputImg.value
     const link = linkInputImg.value
